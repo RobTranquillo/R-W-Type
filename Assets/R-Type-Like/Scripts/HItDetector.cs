@@ -10,7 +10,14 @@ public class HitDetector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Obstacle")
+        {
             OnHitWithDamage(other.GetComponent<Damage>().value);
+            DisableRewardForOtherObject(other);
+        }
     }
 
+    private void DisableRewardForOtherObject(Collider other)
+    {
+        other.GetComponent<Points>().DisableReward();
+    }
 }

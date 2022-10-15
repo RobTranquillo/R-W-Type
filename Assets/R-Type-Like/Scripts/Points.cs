@@ -9,4 +9,9 @@ using UnityEngine;
 public class Points : MonoBehaviour
 {
     public float value = 100f;
+
+    public void DisableReward()
+    {
+        value = 0;
+    }
 }

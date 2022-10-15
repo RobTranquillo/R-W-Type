@@ -7,7 +7,7 @@ public class PlayerPointsData : MonoBehaviour
 {
     float points = 0f;
 
-    public Action<float> PlayerPointsChange;
+    public Action<float> OnPlayerPointsChange;
 
     /// <summary>
     /// Change the value of the points by the given value.
@@ -16,7 +16,7 @@ public class PlayerPointsData : MonoBehaviour
     public void ChangePoints(float difference)
     {
         points += difference;
-        PlayerPointsChange(points);
+        OnPlayerPointsChange(points);
     }
 
     public float Points()

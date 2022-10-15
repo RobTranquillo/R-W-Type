@@ -12,7 +12,7 @@ public class UpdatePoints : MonoBehaviour
     private void Start()
     {
         playerPointsData = FindObjectOfType<PlayerPointsData>();
-        playerPointsData.PlayerPointsChange += UpdateDisplay;
+        playerPointsData.OnPlayerPointsChange += UpdateDisplay;
     }
 
     public void UpdateDisplay(float value)
