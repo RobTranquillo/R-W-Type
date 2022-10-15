@@ -21,7 +21,6 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnObstacle()
     {
-        Debug.Log($"visibleObs.Count: {visibleObs}");
         if (visibleObs < maxCount)
             SpawnNewObstacle();
         Invoke("SpawnObstacle", NextSpanTime());
