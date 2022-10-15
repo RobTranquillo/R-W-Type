@@ -31,6 +31,6 @@ public class PlayerHealthData : MonoBehaviour
 
     private void OnDestroy()
     {
-        FindObjectOfType<GameOver>().Display();
+        FindObjectOfType<GameOver>()?.Display();
     }
 }
