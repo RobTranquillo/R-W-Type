@@ -9,11 +9,11 @@ public class UpdateHealth : MonoBehaviour
 
     private void Start()
     {
-        PlayerHealthController phc = FindObjectOfType<PlayerHealthController>();
+        PlayerHealthData phc = FindObjectOfType<PlayerHealthData>();
         phc.PlayerHealthChange += UpdateDisplay;
     }
 
-    private void UpdateDisplay(object sender, float value)
+    private void UpdateDisplay(float value)
     {
         m_Text.text = value.ToString() + "%";
     }

@@ -6,13 +6,13 @@ using UnityEngine;
 public class SelfDestroy : MonoBehaviour
 {
     internal Action onDestroy;
-    float selfDestroyX = -100f;
+    float selfDestroyPosition = -100f;
 
     void Update()
     {
-        if (transform.position.x > selfDestroyX)
+        if (transform.position.x > selfDestroyPosition)
             return;
+        onDestroy?.Invoke();
         Destroy(this.gameObject);
-        onDestroy.Invoke();
     }
 }
