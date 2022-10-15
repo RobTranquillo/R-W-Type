@@ -8,8 +8,8 @@ public class PlayerHealthController : MonoBehaviour
 {
     public float shipIntegrety = 100f;
 
-    HitDetector hitDetector;
     public event EventHandler<float> PlayerHealthChange;
+    HitDetector hitDetector;
 
     void Start()
     {

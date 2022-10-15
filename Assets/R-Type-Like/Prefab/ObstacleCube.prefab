@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 5579731356547695543}
   - component: {fileID: 7427664677878085154}
   - component: {fileID: 1554174432756787184}
+  - component: {fileID: 7123829373596054483}
+  - component: {fileID: 2436166917714989494}
   m_Layer: 0
   m_Name: ObstacleCube
   m_TagString: Obstacle
@@ -174,3 +176,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce8ebce49e621d40a8a72d92dbf86db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7123829373596054483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616335715459960342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025238f448b40144ba06807666624bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 10
+--- !u!114 &2436166917714989494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616335715459960342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c808d080f5fc20e429cbf9d54d5c04f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 100

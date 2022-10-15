@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
@@ -9,8 +10,12 @@ public class ObstacleSpawner : MonoBehaviour
 
     int visibleObs = 0;
 
+    PlayerPointsData playerPointsData;
+
     private void Start()
     {
+        playerPointsData = FindObjectOfType<PlayerPointsData>();
+
         Invoke("SpawnObstacle", NextSpanTime());
     }
 
@@ -30,6 +35,10 @@ public class ObstacleSpawner : MonoBehaviour
     {
         GameObject newObs = Instantiate(obstacle, transform);
         visibleObs++;
-        newObs.GetComponent<SelfDestroy>().onDestroy += () => { visibleObs--; };
+        SelfDestroy selfDestroy = newObs.GetComponent<SelfDestroy>();
+        selfDestroy.onDestroy += () => { visibleObs--; };
+
+        selfDestroy.onDestroy += () => { playerPointsData.ChangePoints(100f); };
+        
     }
 }
