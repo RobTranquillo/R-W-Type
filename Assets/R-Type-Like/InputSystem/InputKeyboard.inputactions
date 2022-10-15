@@ -1,0 +1,114 @@
+{
+    "name": "Keyboard",
+    "maps": [
+        {
+            "name": "ShipControl",
+            "id": "7a178173-81e7-4e80-9c43-34f1cc1fa1d9",
+            "actions": [
+                {
+                    "name": "ShipUp",
+                    "type": "Button",
+                    "id": "d518e9b8-2669-442c-9fdc-c8be17a0288c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShipDown",
+                    "type": "Button",
+                    "id": "6f6934bb-3b07-4b96-8079-0ed4f919d08f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShipThrottle",
+                    "type": "Button",
+                    "id": "2a0ea823-7f22-4fcf-9ac6-a8409dd37205",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShipAccelerate",
+                    "type": "Button",
+                    "id": "4c1d24f2-e2cd-4219-9c67-f092790375f4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "04046fe2-abce-43f2-b881-d9f1f9d636ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f1d3b7cb-ed1f-42f7-9776-4ba8b89c5948",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShipUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5e04b45-9dc0-4d50-8d92-4e924da01593",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShipDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "efd99154-6a07-4b90-ac91-91f6ec67d605",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShipThrottle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ca89a6a-c1c7-4dd9-a3dd-42bb1423ee54",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShipAccelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "574ac711-0db3-4856-9b09-0634d2c319a8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
