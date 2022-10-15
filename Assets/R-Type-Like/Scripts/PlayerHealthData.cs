@@ -4,28 +4,33 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using UnityEngine;
 
-public class PlayerHealthController : MonoBehaviour
+public class PlayerHealthData : MonoBehaviour
 {
     public float shipIntegrety = 100f;
 
-    public event EventHandler<float> PlayerHealthChange;
+    public Action<float> PlayerHealthChange;
     HitDetector hitDetector;
 
     void Start()
     {
         hitDetector = GetComponentInChildren<HitDetector>();
         hitDetector.OnHitWithDamage = LowerShipIntegrety;
+        PlayerHealthChange(shipIntegrety);
     }
 
     private void LowerShipIntegrety(float value)
     {
         shipIntegrety -= value;
-        PlayerHealthChange?.Invoke(this, shipIntegrety);
-        Debug.Log($"shipIntegrety: {shipIntegrety}");
+        PlayerHealthChange(shipIntegrety);
         if (shipIntegrety > 0)
             return;
         
         Debug.Log("GAME OVER");
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<GameOver>().Display();
     }
 }
