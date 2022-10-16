@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class StandardGun : MonoBehaviour
 {
+    public float damageStrengthOnEnemies = 30f;
     public GameObject spark;
     private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
     public ParticleSystem particleSysGun;
@@ -19,6 +20,10 @@ public class StandardGun : MonoBehaviour
         {
             Instantiate(spark, collisionEvents[i].intersection, Quaternion.LookRotation(collisionEvents[i].normal));
         }
+
+        if (other.tag != "Enemy")
+            return;
+        other.transform.parent.GetComponent<Strength>().Damage(damageStrengthOnEnemies);
     }
 
     private void FireStop(InputAction.CallbackContext obj)

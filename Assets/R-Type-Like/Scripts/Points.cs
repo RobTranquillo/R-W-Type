@@ -8,7 +8,14 @@ using UnityEngine;
 /// </summary>
 public class Points : MonoBehaviour
 {
-    public float value = 100f;
+    [Header("Points the Player earns on survive this")]
+    [SerializeField]
+    private float value = 100f;
+
+    public float Get()
+    {
+        return value;
+    }
 
     public void DisableReward()
     {

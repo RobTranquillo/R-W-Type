@@ -38,7 +38,7 @@ public class ObstacleSpawner : MonoBehaviour
         SelfDestroyAtDistance selfDestroy = newObs.GetComponent<SelfDestroyAtDistance>();
         selfDestroy.onDestroy += () => { visibleObs--; };
 
-        selfDestroy.onDestroy += () => { playerPointsData.ChangePoints(newObs.GetComponent<Points>().value); };
+        selfDestroy.onDestroy += () => { playerPointsData.ChangePoints(newObs.GetComponent<Points>().Get()); };
         
     }
 }
