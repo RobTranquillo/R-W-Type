@@ -6,8 +6,7 @@ public class UpdateHealth : MonoBehaviour
 {
     public TMP_Text m_Text;
 
-
-    private void Start()
+    private void Awake()
     {
         PlayerHealthData phc = FindObjectOfType<PlayerHealthData>();
         phc.PlayerHealthChange += UpdateDisplay;
