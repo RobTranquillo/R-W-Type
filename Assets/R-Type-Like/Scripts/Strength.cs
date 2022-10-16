@@ -9,8 +9,17 @@ public class Strength : MonoBehaviour
 
     public float strength = 100f;
     public bool selfDestroyOnZero = true;
-    internal Action onDestroy;
+    public AudioClip soundIfDestroyed;
 
+    internal Action onDestroy;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = transform.parent.GetComponent<AudioSource>();
+        audioSource.loop = false;
+        audioSource.clip = soundIfDestroyed;
+    }
 
     internal void Damage(float damageStrengthOnEnemies)
     {
@@ -19,6 +28,8 @@ public class Strength : MonoBehaviour
             return;
         if (!selfDestroyOnZero)
             return;
+
+        audioSource.Play();
         onDestroy?.Invoke();
         Destroy(gameObject);
     }

@@ -129,3 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 100
   selfDestroyOnZero: 1
+  soundIfDestroyed: {fileID: 8300000, guid: b409bcf5cd0cea74e97b02461a94772b, type: 3}
