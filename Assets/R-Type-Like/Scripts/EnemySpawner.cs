@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
 
     private float NextSpanTime()
     {
-        return Random.Range(spawnBaseDelay / 2, spawnBaseDelay);
+        return Random.Range(spawnBaseDelay / 8, spawnBaseDelay);
     }
 
     void SpawnEnemy()
@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnNewEnemy()
     {
-        GameObject newEnemy = Instantiate(enemies[0], transform);
+        GameObject newEnemy = Instantiate(enemies[Random.Range(0,2)], transform);
         visibleEnemies++;
 
         //todo: unterschiedliche Werte für abschießen und einfach nur ausgewichen
