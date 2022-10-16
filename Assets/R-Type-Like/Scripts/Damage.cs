@@ -7,5 +7,6 @@ using UnityEngine;
 /// </summary>
 public class Damage : MonoBehaviour
 {
+    [Header("Damage the player appears on collsion")]
     public float value = 10f;
 }
