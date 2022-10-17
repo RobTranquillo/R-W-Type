@@ -8,20 +8,20 @@ public class HitDetector : MonoBehaviour
     public float EnemiesDamageOnCollisison = 1000f;
     internal Action<float> OnHitWithDamage;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle")
         {
-            OnHitWithDamage(other.GetComponent<Damage>().value);
-            DisableRewardForOtherObject(other);
+            OnHitWithDamage(collision.gameObject.GetComponent<Damage>().value);
+            DisableRewardForOtherObject(collision.collider);
         }
 
-        if (other.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         { 
             // Damage on me
-            OnHitWithDamage(other.GetComponentInParent<Damage>().value);
+            OnHitWithDamage(collision.gameObject.GetComponentInParent<Damage>().value);
             // Damage on the enemy
-            other.GetComponentInParent<Strength>().Damage(EnemiesDamageOnCollisison);
+            collision.gameObject.GetComponentInParent<Strength>().Damage(EnemiesDamageOnCollisison);
         }
     }
 

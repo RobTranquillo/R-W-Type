@@ -31,17 +31,17 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnNewEnemy()
     {
-        GameObject newEnemy = Instantiate(enemies[Random.Range(0,2)], transform);
+        GameObject newEnemy = Instantiate(enemies[Random.Range(0,enemies.Length)], transform);
         visibleEnemies++;
 
         //todo: unterschiedliche Werte für abschießen und einfach nur ausgewichen
-        float yield = newEnemy.GetComponent<Points>().Get();
+        float yield = newEnemy.GetComponentInChildren<Points>().Get();
 
-        SelfDestroyAtDistance selfDestroy = newEnemy.GetComponent<SelfDestroyAtDistance>();
+        SelfDestroyAtDistance selfDestroy = newEnemy.GetComponentInChildren<SelfDestroyAtDistance>();
         selfDestroy.onDestroy += () => { visibleEnemies--; };
         selfDestroy.onDestroy += () => { playerPointsData.ChangePoints(yield); };
 
-        Strength strength = newEnemy.GetComponent<Strength>();
+        Strength strength = newEnemy.GetComponentInChildren<Strength>();
         strength.onDestroy += () => { visibleEnemies--; };
         strength.onDestroy += () => { playerPointsData.ChangePoints(yield); };
 

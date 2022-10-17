@@ -16,7 +16,7 @@ public class Strength : MonoBehaviour
 
     private void Start()
     {
-        audioSource = transform.parent.GetComponent<AudioSource>();
+        audioSource = GetComponentInParent<AudioSource>();
         audioSource.loop = false;
         audioSource.clip = soundIfDestroyed;
     }
