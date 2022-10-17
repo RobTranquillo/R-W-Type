@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HitDetector : MonoBehaviour
 {
+    public float EnemiesDamageOnCollisison = 1000f;
     internal Action<float> OnHitWithDamage;
 
     private void OnTriggerEnter(Collider other)
@@ -13,6 +14,14 @@ public class HitDetector : MonoBehaviour
         {
             OnHitWithDamage(other.GetComponent<Damage>().value);
             DisableRewardForOtherObject(other);
+        }
+
+        if (other.tag == "Enemy")
+        { 
+            // Damage on me
+            OnHitWithDamage(other.GetComponentInParent<Damage>().value);
+            // Damage on the enemy
+            other.GetComponentInParent<Strength>().Damage(EnemiesDamageOnCollisison);
         }
     }
 
