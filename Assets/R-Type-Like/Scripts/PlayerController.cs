@@ -9,9 +9,16 @@ public class PlayerController : MonoBehaviour
     public float verticalSpeed = 1f;
     public float horizontalSpeed = 1f;
 
-    private Vector2 flyDirection = Vector2.zero;
-    private InputKeyboard inputKeyboard;
+    [Header("Player Screen Boundaries")]
+    public float upperLimit = 0;
+    public float lowerLimit = 0;
+    public float backwardsLimit = 0;
+    public float forwardLimit = 0;
 
+
+    private Vector2 moveDirection = Vector2.zero;
+    private InputKeyboard inputKeyboard;
+    
     private void OnEnable()
     {
         inputKeyboard.ShipControl.Enable();
@@ -50,37 +57,47 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (flyDirection == Vector2.zero)
+        if (moveDirection == Vector2.zero)
             return;
-        transform.position = transform.position + new Vector3(flyDirection.x, flyDirection.y, 0);
+        transform.position = ApplyPlayerBoundaries(transform.position + new Vector3(moveDirection.x, moveDirection.y, 0));
     }
 
-    private void ShipVerticalZero(InputAction.CallbackContext obj)
+    private Vector3 ApplyPlayerBoundaries(Vector3 pos)
     {
-        flyDirection.y = 0;
-    }
-    private void ShipHorizontalZero(InputAction.CallbackContext obj)
-    {
-        flyDirection.x = 0;
+        pos.y = Math.Clamp(pos.y, lowerLimit, upperLimit);
+        pos.x = Math.Clamp(pos.x, backwardsLimit, forwardLimit);
+        return pos;
     }
 
     #region - Controller Functions -
+
+    // begin movement
     public void ShipUp(InputAction.CallbackContext context)
     {
-        flyDirection = new Vector2(flyDirection.x, 1 * verticalSpeed);
+        moveDirection = new Vector2(moveDirection.x, 1 * verticalSpeed);
     }
 
     public void ShipDown(InputAction.CallbackContext context)
     {
-        flyDirection = new Vector2(flyDirection.x, -1 * verticalSpeed);
+        moveDirection = new Vector2(moveDirection.x, -1 * verticalSpeed);
     }
     public void ShipAccelerate(InputAction.CallbackContext context)
     {
-        flyDirection = new Vector2(1 * verticalSpeed, flyDirection.y);
+        moveDirection = new Vector2(1 * verticalSpeed, moveDirection.y);
     }
     public void ShipThrottle(InputAction.CallbackContext context)
     {
-        flyDirection = new Vector2(-1 * verticalSpeed, flyDirection.y);
+        moveDirection = new Vector2(-1 * verticalSpeed, moveDirection.y);
+    }
+
+    // end movement
+    private void ShipVerticalZero(InputAction.CallbackContext obj)
+    {
+        moveDirection.y = 0;
+    }
+    private void ShipHorizontalZero(InputAction.CallbackContext obj)
+    {
+        moveDirection.x = 0;
     }
     #endregion - Controller Functions -
 }

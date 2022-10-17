@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class HitDetector : MonoBehaviour
 {
-    public Action<float> OnHitWithDamage;
-    
+    internal Action<float> OnHitWithDamage;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Obstacle")
