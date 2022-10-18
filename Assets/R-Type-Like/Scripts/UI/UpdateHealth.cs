@@ -14,6 +14,8 @@ public class UpdateHealth : MonoBehaviour
 
     private void UpdateDisplay(float value)
     {
+        if (value < 0) 
+            value = 0;
         m_Text.text = value.ToString() + "%";
     }
 }

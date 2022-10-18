@@ -6,15 +6,16 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    public TMP_Text text;
-
     private void Start()
     {
-        text.enabled = false;
+        FindObjectOfType<PlayerHealthData>().PlayerHealthChange += ShowGameOver;
+        gameObject.SetActive(false);
     }
 
-    internal void Display()
+    internal void ShowGameOver(float health)
     {
-        text.enabled = true;
+        if (health > 0)
+            return;
+        gameObject.SetActive(true);
     }
 }

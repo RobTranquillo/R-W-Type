@@ -28,9 +28,4 @@ public class PlayerHealthData : MonoBehaviour
         Debug.Log("GAME OVER");
         Destroy(gameObject);
     }
-
-    private void OnDestroy()
-    {
-        FindObjectOfType<GameOver>()?.Display();
-    }
 }
