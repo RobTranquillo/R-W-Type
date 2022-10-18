@@ -21,7 +21,7 @@ public class Damage : MonoBehaviour
         foreach (MeshCollider coll in colliders)
         {
             coll.convex = true;
-            coll.isTrigger = true;
+            //coll.isTrigger = true;
 
             Rigidbody rb = coll.GetComponent<Rigidbody>();
             if (rb == null)
