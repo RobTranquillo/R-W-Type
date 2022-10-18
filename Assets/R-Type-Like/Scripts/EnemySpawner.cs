@@ -5,8 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemies;
-    public float spawnBaseDelay = 1f;
-    public int maxCount = 5;
+    public float spawnMaxNewEnemyDelay = 1f;
 
     int visibleEnemies = 0;
     PlayerPointsData playerPointsData;
@@ -19,31 +18,25 @@ public class EnemySpawner : MonoBehaviour
 
     private float NextSpanTime()
     {
-        return Random.Range(spawnBaseDelay / 8, spawnBaseDelay);
+        return Random.Range(spawnMaxNewEnemyDelay / 2, spawnMaxNewEnemyDelay);
     }
 
     void SpawnEnemy()
     {
-        if (visibleEnemies < maxCount)
-            SpawnNewEnemy();
+        SpawnNewEnemy();
         Invoke("SpawnEnemy", NextSpanTime());
     }
 
     private void SpawnNewEnemy()
     {
-        GameObject newEnemy = Instantiate(enemies[Random.Range(0,enemies.Length)], transform);
-        visibleEnemies++;
-
-        //todo: unterschiedliche Werte für abschießen und einfach nur ausgewichen
+        GameObject newEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], transform);
         float yield = newEnemy.GetComponentInChildren<Points>().Get();
 
         SelfDestroyAtDistance selfDestroy = newEnemy.GetComponentInChildren<SelfDestroyAtDistance>();
-        selfDestroy.onDestroy += () => { visibleEnemies--; };
         selfDestroy.onDestroy += () => { playerPointsData.ChangePoints(yield); };
 
         Strength strength = newEnemy.GetComponentInChildren<Strength>();
-        strength.onDestroy += () => { visibleEnemies--; };
         strength.onDestroy += () => { playerPointsData.ChangePoints(yield); };
-
     }
+
 }
