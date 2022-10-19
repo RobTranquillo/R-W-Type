@@ -15,4 +15,12 @@ public class MusicPlayer : MonoBehaviour
         audioSource.clip = songs[Random.Range(0, songs.Length - 1)];
         audioSource.Play(); 
     }
+
+    public void Toggle()
+    {
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+        else
+            audioSource.Play();
+    }
 }
