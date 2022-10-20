@@ -8,6 +8,13 @@ public class HitDetector : MonoBehaviour
     public float EnemiesDamageOnCollisison = 1000f;
     internal Action<float> OnHitWithDamage;
 
+    PowerUpHandler powerUpHandler;
+
+    private void Start()
+    {
+        powerUpHandler = GetComponentInParent<PowerUpHandler>();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Obstacle")
@@ -22,6 +29,13 @@ public class HitDetector : MonoBehaviour
             OnHitWithDamage(collision.gameObject.GetComponentInParent<Damage>().value);
             // Damage on the enemy
             collision.gameObject.GetComponentInParent<Strength>().Damage(EnemiesDamageOnCollisison);
+        }
+
+
+        if (collision.gameObject.tag == "PowerUp")
+        {
+            powerUpHandler.Switch(collision.gameObject.GetComponentInParent<PowerUp>());
+            Destroy(collision.gameObject);
         }
     }
 

@@ -18,7 +18,8 @@ public class PlayerHealthData : MonoBehaviour
     {
         hitDetector = GetComponentInChildren<HitDetector>();
         hitDetector.OnHitWithDamage = LowerShipIntegrety;
-        PlayerHealthChange(shipIntegrety);
+        if (PlayerHealthChange != null)
+            PlayerHealthChange(shipIntegrety);
         audioSource = GetComponent<AudioSource>();
 
     }
