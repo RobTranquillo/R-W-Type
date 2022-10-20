@@ -39,7 +39,7 @@ Transform:
   m_Children:
   - {fileID: 1164906497551373244}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &908170012176271467
 MeshFilter:
@@ -164,7 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0ca1b4e598c8b4ab7db23d1ce60e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  movingSpeed: 1
+  rotatingTime: 3
+  rotationX_Axis: 62.4
+  rotationY_Axis: 31.8
+  rotationZ_Axis: 19.3
 --- !u!114 &1554174432756787184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +223,14 @@ PrefabInstance:
     - target: {fileID: 7338618689535840697, guid: d57d6419728ca4fa486055a9b54eb326, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338618689535840697, guid: d57d6419728ca4fa486055a9b54eb326, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338618689535840697, guid: d57d6419728ca4fa486055a9b54eb326, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 7338618689535840697, guid: d57d6419728ca4fa486055a9b54eb326, type: 3}
       propertyPath: m_LocalPosition.x
