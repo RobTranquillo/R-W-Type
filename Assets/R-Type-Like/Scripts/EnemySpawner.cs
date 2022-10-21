@@ -5,10 +5,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemies;
-    public float spawnMaxNewEnemyDelay = 1f;
-
-    int visibleEnemies = 0;
-    PlayerPointsData playerPointsData;
+    private PlayerPointsData playerPointsData;
+    
 
     void Start()
     {
@@ -18,7 +16,11 @@ public class EnemySpawner : MonoBehaviour
 
     private float NextSpanTime()
     {
-        return Random.Range(spawnMaxNewEnemyDelay / 2, spawnMaxNewEnemyDelay);
+        if (!Settings.Active().EnemySpawner.increaseEnemyCount)
+            return Random.Range(Settings.Active().EnemySpawner.spawnBaseIntervall / 2, Settings.Active().EnemySpawner.spawnBaseIntervall);
+
+        //nach vergangene Zeit/30 wird der respawn Interval bis auf minimal alle 0.7 Sekunden runtergeschraubt
+        return Mathf.Clamp(Settings.Active().EnemySpawner.spawnBaseIntervall - Time.realtimeSinceStartup/30, 0.7f, 100f);
     }
 
     void SpawnEnemy()

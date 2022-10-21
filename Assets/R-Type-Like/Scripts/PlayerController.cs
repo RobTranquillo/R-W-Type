@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public GameObject playerCharacter;
-    public float verticalSpeed = 1f;
-    public float horizontalSpeed = 1f;
 
     [Header("Player Screen Boundaries")]
     public float upperLimit = 0;
@@ -15,18 +13,13 @@ public class PlayerController : MonoBehaviour
     public float backwardsLimit = 0;
     public float forwardLimit = 0;
 
-
     private Vector2 moveDirection = Vector2.zero;
     private InputKeyboard inputKeyboard;
-    
-    private void OnEnable()
-    {
-        inputKeyboard.ShipControl.Enable();
-    }
-    private void OnDisable()
-    {
-        inputKeyboard.ShipControl.Disable();
-    }
+
+    // Global Settings
+    public float verticalSpeed;
+    public float horizontalSpeed;
+    // Global Settings
 
     private void Awake()
     {
@@ -40,6 +33,21 @@ public class PlayerController : MonoBehaviour
         inputKeyboard.ShipControl.ShipAccelerate.canceled += ShipHorizontalZero;
         inputKeyboard.ShipControl.ShipThrottle.started += ShipThrottle;
         inputKeyboard.ShipControl.ShipThrottle.canceled += ShipHorizontalZero;
+    }
+
+    private void Start()
+    {
+        horizontalSpeed = Settings.Active().PlayerController.HorizontalSpeed;
+        verticalSpeed = Settings.Active().PlayerController.VerticalSpeed;
+    }
+    
+    private void OnEnable()
+    {
+        inputKeyboard.ShipControl.Enable();
+    }
+    private void OnDisable()
+    {
+        inputKeyboard.ShipControl.Disable();
     }
 
     private void OnDestroy()
@@ -83,11 +91,11 @@ public class PlayerController : MonoBehaviour
     }
     public void ShipAccelerate(InputAction.CallbackContext context)
     {
-        moveDirection = new Vector2(1 * verticalSpeed, moveDirection.y);
+        moveDirection = new Vector2(1 * horizontalSpeed, moveDirection.y);
     }
     public void ShipThrottle(InputAction.CallbackContext context)
     {
-        moveDirection = new Vector2(-1 * verticalSpeed, moveDirection.y);
+        moveDirection = new Vector2(-1 * horizontalSpeed, moveDirection.y);
     }
 
     // end movement

@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public float spawnBaseDelay = 1f;
     public GameObject obstacle;
-    public int maxCount;
 
     int visibleObs = 0;
-
     PlayerPointsData playerPointsData;
 
     private void Start()
@@ -21,12 +18,12 @@ public class ObstacleSpawner : MonoBehaviour
 
     private float NextSpanTime()
     {
-        return Random.Range(spawnBaseDelay/2, spawnBaseDelay);
+        return Random.Range(Settings.Active().ObstacleSpawner.BaseSpawnIntervall / 2, Settings.Active().ObstacleSpawner.BaseSpawnIntervall);
     }
 
     private void SpawnObstacle()
     {
-        if (visibleObs < maxCount)
+        if (visibleObs < Settings.Active().ObstacleSpawner.MaxCount)
             SpawnNewObstacle();
         Invoke("SpawnObstacle", NextSpanTime());
     }

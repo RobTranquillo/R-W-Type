@@ -5,10 +5,11 @@ using UnityEngine;
 public class PowerUpSpawner : MonoBehaviour
 {
     public GameObject[] powerUps;
-    public float baseSpawnInterval = 13f;
 
+    private float intervall;
     void Start()
     {
+        intervall = Settings.Active().PowerUpSpawner.BaseSpawnIntervall;
         Invoke("NextPowerUp", NextSpanTime());
     }
 
@@ -20,6 +21,6 @@ public class PowerUpSpawner : MonoBehaviour
 
     private float NextSpanTime()
     {
-        return Random.Range(baseSpawnInterval-(baseSpawnInterval/4), baseSpawnInterval+(baseSpawnInterval/4));
+        return Random.Range(intervall-(intervall/4), intervall+(intervall/4));
     }
 }

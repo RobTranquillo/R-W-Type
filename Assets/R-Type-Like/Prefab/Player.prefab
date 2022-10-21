@@ -184,7 +184,7 @@ Transform:
   - {fileID: 7784700984911923662}
   - {fileID: 960226315243926556}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1357141122478022531
 MonoBehaviour:
@@ -199,12 +199,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCharacter: {fileID: 7440791973079765876}
-  verticalSpeed: 1
-  horizontalSpeed: 1
   upperLimit: 111
   lowerLimit: -111
   backwardsLimit: -35
   forwardLimit: 404
+  verticalSpeed: 1
+  horizontalSpeed: 1
 --- !u!114 &1357141122478022529
 MonoBehaviour:
   m_ObjectHideFlags: 0
