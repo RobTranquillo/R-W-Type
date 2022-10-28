@@ -5051,7 +5051,7 @@ GameObject:
   - component: {fileID: 2890815846804288108}
   - component: {fileID: 8836061997009279967}
   - component: {fileID: 8699619546329422091}
-  - component: {fileID: 100351834232895846}
+  - component: {fileID: 2011079383547625168}
   m_Layer: 0
   m_Name: StandardGun.2
   m_TagString: Untagged
@@ -9943,8 +9943,8 @@ MonoBehaviour:
   spark: {fileID: 74926443256445954, guid: 1905720505204644fae3a4180b368df3, type: 3}
   particleSysGun: {fileID: 2890815846804288108}
   particleSysMuzzleFlare: {fileID: 7053483336472954461}
-  fireSound: {fileID: 8300000, guid: d3d798a4bc429124dbb7c67ba696d924, type: 3}
---- !u!82 &100351834232895846
+  fireSound: {fileID: 0}
+--- !u!82 &2011079383547625168
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9956,7 +9956,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.626
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14957,7 +14957,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.626
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -29962,8 +29962,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.5
+  m_Pitch: 0.6
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -29972,7 +29972,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: -0.306
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0

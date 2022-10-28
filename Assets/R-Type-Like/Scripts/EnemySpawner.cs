@@ -1,14 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemies;
     public GameObject boss;
-    
+    public UnityEvent onBossSpawn;
+    public UnityEvent onBossFinish;
+
     private PlayerPointsData playerPointsData;
     private GameObject bossGO = null;
+
+
     
 
     void Start()
@@ -31,9 +34,11 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void StartBoss()
-    {   
-        if (bossGO == null)
-            bossGO = Instantiate(boss, transform);
+    {
+        if (bossGO != null)
+            return;
+        bossGO = Instantiate(boss, transform);
+        onBossSpawn.Invoke();
     }
 
     void SpawnEnemy()

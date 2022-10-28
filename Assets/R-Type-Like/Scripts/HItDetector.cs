@@ -1,8 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handle if somthing hits the player
+/// </summary>
 public class HitDetector : MonoBehaviour
 {
     public float EnemiesDamageOnCollisison = 1000f;

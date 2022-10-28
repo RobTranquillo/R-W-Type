@@ -12,11 +12,12 @@ public class Strength : MonoBehaviour
     public AudioClip soundIfDestroyed;
 
     internal Action onDestroy;
-    AudioSource audioSource;
+    public AudioSource audioSource;
 
     private void Start()
     {
-        audioSource = GetComponentInParent<AudioSource>();
+        if (audioSource == null)
+            audioSource = GetComponentInParent<AudioSource>();
         audioSource.loop = false;
         audioSource.clip = soundIfDestroyed;
     }
