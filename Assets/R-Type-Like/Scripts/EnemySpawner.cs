@@ -5,7 +5,10 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemies;
+    public GameObject boss;
+    
     private PlayerPointsData playerPointsData;
+    private GameObject bossGO = null;
     
 
     void Start()
@@ -19,12 +22,24 @@ public class EnemySpawner : MonoBehaviour
         if (!Settings.Active().EnemySpawner.increaseEnemyCount)
             return Random.Range(Settings.Active().EnemySpawner.spawnBaseIntervall / 2, Settings.Active().EnemySpawner.spawnBaseIntervall);
 
+        if (Time.time > Settings.Active().EnemySpawner.waveLength)
+            Invoke("StartBoss", 7f);
+
+
         //nach vergangene Zeit/30 wird der respawn Interval bis auf minimal alle 0.7 Sekunden runtergeschraubt
         return Mathf.Clamp(Settings.Active().EnemySpawner.spawnBaseIntervall - Time.realtimeSinceStartup/30, 0.7f, 100f);
     }
 
+    private void StartBoss()
+    {   
+        if (bossGO == null)
+            bossGO = Instantiate(boss, transform);
+    }
+
     void SpawnEnemy()
     {
+        if (bossGO != null)
+            return;
         SpawnNewEnemy();
         Invoke("SpawnEnemy", NextSpanTime());
     }
