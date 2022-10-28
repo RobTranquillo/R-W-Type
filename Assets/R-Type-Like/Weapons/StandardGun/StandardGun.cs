@@ -39,8 +39,10 @@ public class StandardGun : MonoBehaviour
     private void FireStart(InputAction.CallbackContext obj)
     {
         particleSysMuzzleFlare.Play();
-        particleSysGun.Play();
-        audioSource.Play();
+        particleSysGun.Play();  
+        
+        if (fireSound != null)
+            audioSource.Play();
     }
 
     #region - Input System -
@@ -57,7 +59,8 @@ public class StandardGun : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = fireSound;
+        if (fireSound != null)
+            audioSource.clip = fireSound;
 
         inputKeyboard = new InputKeyboard();
         inputKeyboard.ShipControl.Fire.started  += FireStart;
