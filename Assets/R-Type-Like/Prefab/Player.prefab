@@ -184,7 +184,7 @@ Transform:
   - {fileID: 7784700984911923662}
   - {fileID: 960226315243926556}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1357141122478022531
 MonoBehaviour:
@@ -220,6 +220,7 @@ MonoBehaviour:
   shipIntegrety: 100
   crashSound: {fileID: 8300000, guid: 515f5bf17da8ff74491adfcd8d33b9c1, type: 3}
   dieSound: {fileID: 8300000, guid: 827d937441c44914fb6ddd4ff17795da, type: 3}
+  audioSource: {fileID: 4936084528665671214}
 --- !u!114 &1357141122478022558
 MonoBehaviour:
   m_ObjectHideFlags: 0

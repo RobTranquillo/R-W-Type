@@ -9,10 +9,10 @@ public class PlayerHealthData : MonoBehaviour
     public float shipIntegrety = 100f;
     public AudioClip crashSound;
     public AudioClip dieSound;
+    public AudioSource audioSource;
 
     public Action<float> PlayerHealthChange;
     HitDetector hitDetector;
-    AudioSource audioSource;
 
     void Start()
     {
@@ -20,14 +20,16 @@ public class PlayerHealthData : MonoBehaviour
         hitDetector.OnHitWithDamage = LowerShipIntegrety;
         if (PlayerHealthChange != null)
             PlayerHealthChange(shipIntegrety);
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
 
     }
 
     private void LowerShipIntegrety(float value)
     {
         shipIntegrety -= value;
-        PlayerHealthChange(shipIntegrety);
+        if (PlayerHealthChange != null)
+            PlayerHealthChange(shipIntegrety);
         audioSource.clip = crashSound;
         audioSource.Play();
         if (shipIntegrety > 0)
