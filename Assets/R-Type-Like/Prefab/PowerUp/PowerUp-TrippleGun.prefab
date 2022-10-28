@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3787038515176858034}
   - component: {fileID: 3787038515176858029}
   - component: {fileID: 8712456621876769437}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PowerUp-TrippleGun
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 3787038515521626809}
   - component: {fileID: 3787038515521626808}
   - component: {fileID: 3787038515521626815}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
