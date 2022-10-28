@@ -20,6 +20,7 @@ MonoBehaviour:
   EnemySpawner:
     spawnBaseIntervall: 5
     increaseEnemyCount: 1
+    waveLength: 20
   ObstacleSpawner:
     BaseSpawnIntervall: 6
     MaxCount: 4

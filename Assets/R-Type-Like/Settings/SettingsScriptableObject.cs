@@ -49,6 +49,7 @@ public class SettingsScriptableObject : ScriptableObject
     {
         public float spawnBaseIntervall;
         public bool increaseEnemyCount;
+        public float waveLength;
     }
     public SettingsScriptableObject.EnemySpawnerSettings EnemySpawner;
     
