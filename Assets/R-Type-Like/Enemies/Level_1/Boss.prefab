@@ -407,7 +407,14 @@ MonoBehaviour:
   audioSource: {fileID: 8623721984628469882}
   soundIfDestroyed: {fileID: 8300000, guid: b409bcf5cd0cea74e97b02461a94772b, type: 3}
   soundOnHit: {fileID: 8300000, guid: 464a7971cbe7db04b8cb013287972616, type: 3}
+  destroyParticleSystem: {fileID: 0}
   soundOnlyEveryXHit: 15
+  shakeRandomOnXHit: 1
+  rotateRandomOnXHit: 1
+  shakeDuration: 0.6
+  shakeStrength: 0.6
+  shakeVibratio: 10
+  shakeRandomness: 0.6
 --- !u!1 &8279969143955028464
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +494,14 @@ MonoBehaviour:
   audioSource: {fileID: 8623721984628469882}
   soundIfDestroyed: {fileID: 8300000, guid: b409bcf5cd0cea74e97b02461a94772b, type: 3}
   soundOnHit: {fileID: 8300000, guid: 464a7971cbe7db04b8cb013287972616, type: 3}
+  destroyParticleSystem: {fileID: 0}
   soundOnlyEveryXHit: 15
+  shakeRandomOnXHit: 1
+  rotateRandomOnXHit: 1
+  shakeDuration: 0.6
+  shakeStrength: 0.6
+  shakeVibratio: 10
+  shakeRandomness: 0.6
 --- !u!1 &8279969144226530180
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +582,14 @@ MonoBehaviour:
   audioSource: {fileID: 8623721984628469882}
   soundIfDestroyed: {fileID: 8300000, guid: b409bcf5cd0cea74e97b02461a94772b, type: 3}
   soundOnHit: {fileID: 8300000, guid: 464a7971cbe7db04b8cb013287972616, type: 3}
+  destroyParticleSystem: {fileID: 0}
   soundOnlyEveryXHit: 15
+  shakeRandomOnXHit: 1
+  rotateRandomOnXHit: 1
+  shakeDuration: 0.6
+  shakeStrength: 0.6
+  shakeVibratio: 10
+  shakeRandomness: 0.6
 --- !u!1001 &719510647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1053,6 +1074,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 201247934096388184}
+    - target: {fileID: -767243823948308884, guid: fe803abaefdbe874080b844a7df65e93, type: 3}
+      propertyPath: shakeStrength
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -767243823948308884, guid: fe803abaefdbe874080b844a7df65e93, type: 3}
       propertyPath: soundOnlyEveryXHit
       value: 40
