@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public UnityEvent onBossSpawn;
     public UnityEvent onBossFinish;
 
-    private PlayerPointsData playerPointsData;
+    private PlayerScoreData playerPointsData;
     private GameObject bossGO = null;
 
 
@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        playerPointsData = FindObjectOfType<PlayerPointsData>();
+        playerPointsData = FindObjectOfType<PlayerScoreData>();
         Invoke("SpawnEnemy", NextSpanTime());
     }
 
@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnNewEnemy()
     {
         GameObject newEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], transform);
-        float yield = newEnemy.GetComponentInChildren<Points>().Get();
+        float yield = newEnemy.GetComponentInChildren<Score>().Get();
 
         SelfDestroyAtDistance selfDestroy = newEnemy.GetComponentInChildren<SelfDestroyAtDistance>();
         selfDestroy.onDestroy += () => { playerPointsData.ChangePoints(yield); };

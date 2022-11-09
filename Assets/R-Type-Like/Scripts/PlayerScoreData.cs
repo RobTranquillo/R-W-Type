@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPointsData : MonoBehaviour
+public class PlayerScoreData : MonoBehaviour
 {
-    float points = 0f;
+    float score = 0f;
 
-    public Action<float> OnPlayerPointsChange;
+    public Action<float> OnPlayerScoreChange;
 
     /// <summary>
     /// Change the value of the points by the given value.
@@ -15,12 +15,12 @@ public class PlayerPointsData : MonoBehaviour
     /// <param name="difference"></param>
     public void ChangePoints(float difference)
     {
-        points += difference;
-        OnPlayerPointsChange(points);
+        score += difference;
+        OnPlayerScoreChange(score);
     }
 
-    public float Points()
+    public float Score()
     {
-        return points;
+        return score;
     }
 }

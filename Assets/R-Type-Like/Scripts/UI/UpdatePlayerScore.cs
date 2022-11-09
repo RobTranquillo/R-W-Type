@@ -2,17 +2,17 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class UpdatePoints : MonoBehaviour
+public class UpdatePlayerScore : MonoBehaviour
 {
     public TMP_Text m_text;
 
-    PlayerPointsData playerPointsData;
+    PlayerScoreData playerScoreData;
     private bool stopped = false;
 
     private void Start()
     {
-        playerPointsData = FindObjectOfType<PlayerPointsData>();
-        playerPointsData.OnPlayerPointsChange += UpdateDisplay;
+        playerScoreData = FindObjectOfType<PlayerScoreData>();
+        playerScoreData.OnPlayerScoreChange += UpdateDisplay;
 
         PlayerHealthData phc = FindObjectOfType<PlayerHealthData>();
         phc.PlayerHealthChange += StopOnGameOver;

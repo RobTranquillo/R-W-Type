@@ -42,6 +42,6 @@ public class HitDetector : MonoBehaviour
 
     private void DisableRewardForOtherObject(Collider other)
     {
-        other.GetComponent<Points>().DisableReward();
+        other.GetComponent<Score>().DisableReward();
     }
 }

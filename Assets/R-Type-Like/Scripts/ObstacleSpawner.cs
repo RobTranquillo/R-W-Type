@@ -7,11 +7,11 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject obstacle;
 
     int visibleObs = 0;
-    PlayerPointsData playerPointsData;
+    PlayerScoreData playerPointsData;
 
     private void Start()
     {
-        playerPointsData = FindObjectOfType<PlayerPointsData>();
+        playerPointsData = FindObjectOfType<PlayerScoreData>();
 
         Invoke("SpawnObstacle", NextSpanTime());
     }
@@ -35,7 +35,7 @@ public class ObstacleSpawner : MonoBehaviour
         SelfDestroyAtDistance selfDestroy = newObs.GetComponent<SelfDestroyAtDistance>();
         selfDestroy.onDestroy += () => { visibleObs--; };
 
-        selfDestroy.onDestroy += () => { playerPointsData.ChangePoints(newObs.GetComponent<Points>().Get()); };
+        selfDestroy.onDestroy += () => { playerPointsData.ChangePoints(newObs.GetComponent<Score>().Get()); };
         
     }
 }

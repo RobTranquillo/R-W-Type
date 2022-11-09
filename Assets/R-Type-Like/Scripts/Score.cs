@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Hold the information how many points the player earns if survive this thing
 /// </summary>
-public class Points : MonoBehaviour
+public class Score : MonoBehaviour
 {
     [Header("Points the Player earns on survive this")]
     [SerializeField]

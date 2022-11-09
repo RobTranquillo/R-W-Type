@@ -38,7 +38,7 @@ public class PlayerHealthData : MonoBehaviour
         Debug.Log("GAME OVER");
         audioSource.clip = dieSound;
         audioSource.Play();
-        FindObjectOfType<MusicPlayer>().gameObject.SetActive(false);
+        FindObjectOfType<MusicPlayer>()?.gameObject.SetActive(false);
         Destroy(gameObject);
     }    
 }
