@@ -40,7 +40,7 @@ jobs:
 
       # Builds the project
       - name: Build ⚙️
-        uses: game-ci/unity-builder
+        uses: game-ci/unity-builder@v2
         id: build
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -52,10 +52,10 @@ jobs:
           versioning: Semantic
           allowDirtyBuild: false # 'true' for failsafe, 'false' for reliability.
 
-      # Stores Unity logs
-      - name: Store logs 📦
-        uses: actions/upload-artifact@v2.2.3
-        if: always()
-        with:
-          name: Logs
-          path: Logs
+      # # Stores Unity logs
+      # - name: Store logs 📦
+      #   uses: actions/upload-artifact@v2.2.3
+      #   if: always()
+      #   with:
+      #     name: Logs
+      #     path: Logs
