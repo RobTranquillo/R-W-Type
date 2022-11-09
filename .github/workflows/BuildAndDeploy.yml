@@ -34,9 +34,9 @@ jobs:
         with:
           lfs: true
 
-      # Gets project name
-      - name: Get project name 📝
-        run: echo "PROJECT_NAME=$(jq -r '.repository.name' < $GITHUB_EVENT_PATH)" >> $GITHUB_ENV
+      # # Gets project name
+      # - name: Get project name 📝
+      #   run: echo "PROJECT_NAME=$(jq -r '.repository.name' < $GITHUB_EVENT_PATH)" >> $GITHUB_ENV
 
       # # Builds the project
       # - name: Build ⚙️
