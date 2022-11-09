@@ -38,16 +38,16 @@ jobs:
       - name: Get project name 📝
         run: echo "PROJECT_NAME=$(jq -r '.repository.name' < $GITHUB_EVENT_PATH)" >> $GITHUB_ENV
 
-      # Builds the project
-      - name: Build ⚙️
-        uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          targetPlatform: WebGL
-          allowDirtyBuild: false # 'true' for failsafe, 'false' for reliability.
+      # # Builds the project
+      # - name: Build ⚙️
+      #   uses: game-ci/unity-builder@v2
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #     UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      #     UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      #   with:
+      #     targetPlatform: WebGL
+      #     allowDirtyBuild: false # 'true' for failsafe, 'false' for reliability.
 
       # # Stores Unity logs
       # - name: Store logs 📦
