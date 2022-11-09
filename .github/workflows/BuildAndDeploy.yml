@@ -17,11 +17,6 @@ on:
 
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
-    # Button input field for target version
-    # inputs:
-    #   buildTarget:
-    #     description: Build target
-    #     required: true
 
 # Sets environment variables
 # env:
@@ -35,42 +30,32 @@ jobs:
     steps:
       # Checks the repository out
       - name: Repository checkout 📥
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout
         with:
           lfs: true
 
-      # # Gets project name
-      # - name: Get project name 📝
-      #   run: echo "PROJECT_NAME=$(jq -r '.repository.name' < $GITHUB_EVENT_PATH)" >> $GITHUB_ENV
+      # Gets project name
+      - name: Get project name 📝
+        run: echo "PROJECT_NAME=$(jq -r '.repository.name' < $GITHUB_EVENT_PATH)" >> $GITHUB_ENV
 
-      # # Configures the cache
-      # - name: Caching 🗄️
-      #   uses: actions/cache@v2.1.6
-      #   with:
-      #     path: Library
-      #     key: Library-${{ env.PROJECT_NAME }}-${{ env.UNITY_TARGET }}
-      #     restore-keys: |
-      #       Library-${{ env.PROJECT_NAME }}-
-      #       Library-
+      # Builds the project
+      - name: Build ⚙️
+        uses: game-ci/unity-builder
+        id: build
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          unityVersion: auto
+          buildsPath: Build
+          buildName: ${{ env.PROJECT_NAME }}
+          targetPlatform: WebGL
+          versioning: Semantic
+          allowDirtyBuild: false # 'true' for failsafe, 'false' for reliability.
 
-      # # Builds the project
-      # - name: Build ⚙️
-      #   uses: game-ci/unity-builder
-      #   id: build
-      #   env:
-      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-      #   with:
-      #     unityVersion: auto
-      #     buildsPath: Build
-      #     buildName: ${{ env.PROJECT_NAME }}
-      #     targetPlatform: WebGL
-      #     versioning: Semantic
-      #     allowDirtyBuild: false # 'true' for failsafe, 'false' for reliability.
-
-      # # Stores Unity logs
-      # - name: Store logs 📦
-      #   uses: actions/upload-artifact@v2.2.3
-      #   if: always()
-      #   with:
-      #     name: Logs
-      #     path: Logs
+      # Stores Unity logs
+      - name: Store logs 📦
+        uses: actions/upload-artifact@v2.2.3
+        if: always()
+        with:
+          name: Logs
+          path: Logs
