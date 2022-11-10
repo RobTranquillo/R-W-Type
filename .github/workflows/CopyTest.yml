@@ -1,0 +1,28 @@
+﻿# GitHub Actions Unity CI/CD workflow
+#
+# Version: 1.0
+# License: CC BY 4.0
+name: Build
+
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    name: Copy Test
+    runs-on: ubuntu-latest
+    steps:
+        # Data aerzeugen
+        - name: Create a file
+        run: echo "I won't live long" > my_file.txt
+
+        - name: rsync deployments
+          uses: burnett01/rsync-deployments
+          with:
+            switches: -avzr --delete
+            path: /
+            remote_path: /home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/
+            remote_host: ${{ secrets.UBERSPACE_HOST }}
+            remote_user: ${{ secrets.UBERSPACE_USER }}
+            remote_key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
