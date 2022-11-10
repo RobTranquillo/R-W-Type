@@ -22,8 +22,13 @@ jobs:
       - name: write key to file
         run: echo "${{ secrets.DEPLOY_KEY_PRIVATE }}" > keyfile
       
-      - name: rsync files
-        run: rsync -a -zz -e "ssh -p 22 -i keyfile" Build-WebGL/ ${{ secrets.UBERSPACE_USER }}@${{ secrets.UBERSPACE_HOST }}.uberspace.de:/home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/
+      - name: write command to file rsync files
+        run: echo "rsync -a -zz -e \"ssh -p 22 -i keyfile\" Build-WebGL/ ${{ secrets.UBERSPACE_USER }}@${{ secrets.UBERSPACE_HOST }}.uberspace.de:/home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/" > run-rsync
 
-      - name: Delete keyfile
-        run: rm keyfile
+      - name: execute command 
+        run: |
+            chmod +x run-rsync
+            ./run-rsync
+
+      - name: Delete files
+        run: rm keyfile run-rsync
