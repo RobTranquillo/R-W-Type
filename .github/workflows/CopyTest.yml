@@ -19,7 +19,7 @@ jobs:
         run: echo "same here" > my_file3.txt
 
       - name: rsync deployments
-        uses: burnett01/rsync-deployments
+        uses: burnett01/rsync-deployments@5.2.1
         with:
         switches: -avzr --delete
         path: /
