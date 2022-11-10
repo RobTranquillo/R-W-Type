@@ -20,7 +20,7 @@ jobs:
           echo "same here" > my_file3.txt
           
       - name: write key to file
-        run: "${{ secrets.DEPLOY_KEY_PRIVATE }}" > keyfile
+        run: echo "${{ secrets.DEPLOY_KEY_PRIVATE }}" > keyfile
       
       - name: rsync files
         run: rsync -a -zz -e "ssh -p 22 -i keyfile" Build-WebGL/ ${{ secrets.UBERSPACE_USER }}@${{ secrets.UBERSPACE_HOST }}.uberspace.de:/home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/
