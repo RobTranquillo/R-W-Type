@@ -13,7 +13,7 @@ public class RankingController : MonoBehaviour
     public bool useTestingDomain = true;
     public string testingDomain = "https://rw-type.boogiedev.net/ranking/index.php";
 #endif
-#if UNITY_PLAYER
+#if ! UNITY_EDITOR
     bool useTestingDomain = false;
 #endif
 
@@ -53,8 +53,10 @@ public class RankingController : MonoBehaviour
 
     private void LoadRanking()
     {
+#if UNITY_EDITOR
         if (useTestingDomain)
             domain = testingDomain;
+#endif
         StartCoroutine(GetRequest(domain));
     }
 
