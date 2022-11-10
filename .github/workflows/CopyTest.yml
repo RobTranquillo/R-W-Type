@@ -14,9 +14,10 @@ jobs:
     steps:
       # Data erzeugen
       - name: Create files
-        run: echo "I won't live long" > my_file.txt
-        run: echo "mee too" > my_file2.txt
-        run: echo "same here" > my_file3.txt
+        run: |
+          echo "I won't live long" > my_file.txt \
+          echo "mee too" > my_file2.txt \
+          echo "same here" > my_file3.txt
 
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.2.1
