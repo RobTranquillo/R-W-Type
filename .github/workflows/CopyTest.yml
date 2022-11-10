@@ -25,5 +25,5 @@ jobs:
       - name: rsync files
         run: rsync -a -zz -e "ssh -p 22 -i keyfile" Build-WebGL/ ${{ secrets.UBERSPACE_USER }}@${{ secrets.UBERSPACE_HOST }}.uberspace.de:/home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/
 
-      - name Delete keyfile
+      - name: Delete keyfile
         run: rm keyfile
