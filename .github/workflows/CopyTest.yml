@@ -18,17 +18,13 @@ jobs:
           echo "I won't live long" > my_file.txt
           echo "mee too" > my_file2.txt
           echo "same here" > my_file3.txt
-          
-      - name: write key to file
-        run: echo "${{ secrets.DEPLOY_KEY_PRIVATE }}" > keyfile
-      
-      - name: write command to file rsync files
-        run: echo "rsync -a -zz -e \"ssh -p 22 -i keyfile\" Build-WebGL/ ${{ secrets.UBERSPACE_USER }}@${{ secrets.UBERSPACE_HOST }}.uberspace.de:/home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/" > run-rsync
 
-      - name: execute command 
-        run: |
-            chmod +x run-rsync
-            ./run-rsync
-
-      - name: Delete files
-        run: rm keyfile run-rsync
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@5.2.1
+        with:
+          switches: -avr -zz
+          path: /
+          remote_path: /home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/
+          remote_host: ${{ secrets.UBERSPACE_HOST }}
+          remote_user: ${{ secrets.UBERSPACE_USER }}
+           remote_key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
