@@ -15,16 +15,15 @@ jobs:
       # Data erzeugen
       - name: Create files
         run: |
-          echo "I won't live long" > my_file.txt \
-          echo "mee too" > my_file2.txt \
+          echo "I won't live long" > my_file.txt
+          echo "mee too" > my_file2.txt
           echo "same here" > my_file3.txt
+          
+      - name: write key to file
+        run: "${{ secrets.DEPLOY_KEY_PRIVATE }}" > keyfile
+      
+      - name: rsync files
+        run: rsync -a -zz -e "ssh -p 22 -i keyfile" Build-WebGL/ ${{ secrets.UBERSPACE_USER }}@${{ secrets.UBERSPACE_HOST }}.uberspace.de:/home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/
 
-      - name: rsync deployments
-        uses: burnett01/rsync-deployments@5.2.1
-        with:
-          switches: -avzr --delete
-          path: /
-          remote_path: /home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/
-          remote_host: ${{ secrets.UBERSPACE_HOST }}
-          remote_user: ${{ secrets.UBERSPACE_USER }}
-          remote_key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
+      - name Delete keyfile
+        run: rm keyfile
