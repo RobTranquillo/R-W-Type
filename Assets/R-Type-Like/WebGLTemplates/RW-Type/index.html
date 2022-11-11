@@ -62,11 +62,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build-WebGL.loader.js";
+      var loaderUrl = buildUrl + "/WebGL.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Build-WebGL.data.gz",
-        frameworkUrl: buildUrl + "/Build-WebGL.framework.js.gz",
-        codeUrl: buildUrl + "/Build-WebGL.wasm.gz",
+        dataUrl: buildUrl + "/WebGL.data.gz",
+        frameworkUrl: buildUrl + "/WebGL.framework.js.gz",
+        codeUrl: buildUrl + "/WebGL.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "R-Type-Like",
@@ -99,8 +99,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = {{{ WIDTH }}};
-        canvas.style.height = {{{ HEIGTH }}};
+        canvas.style.width = {{{ WIDTH }}}px;
+        canvas.style.height = {{{ HEIGTH }}}px;
       }
 
       loadingBar.style.display = "block";
