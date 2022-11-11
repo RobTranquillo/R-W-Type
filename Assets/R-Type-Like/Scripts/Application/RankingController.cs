@@ -13,17 +13,14 @@ public class RankingController : MonoBehaviour
     public bool useTestingDomain = true;
     public string testingDomain = "https://rw-type.boogiedev.net/ranking/index.php";
 #endif
-#if ! UNITY_EDITOR
-    bool useTestingDomain = false;
-#endif
 
     public TMPro.TMP_Text playerName;
+
     public TMPro.TMP_Text playerScore;
     public TMPro.TMP_Text ranking;
 
     public int maxRankingPlaces = 8;
 
-    private string _playerName = "";
     private PlayerScoreData playerScoreData;
     private InputKeyboard inputKeyboard;
 
