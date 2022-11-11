@@ -12,7 +12,7 @@
     <h1>R-W-Type</h1>
     <h3>Feel like you where young.. </h3>
 
-    <p>Build: {{{ PRODUCT_VERSION }}}</p>
+    <p>Build: !! {{{ PRODUCT_VERSION }}} !!</p>
 
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width="{{{ WIDTH }}}" height="{{{ HEIGHT }}}"></canvas>
@@ -70,7 +70,7 @@
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "R-Type-Like",
-        productVersion: "Version [0,01] - 11.11.2022",
+        productVersion: "{{{ PRODUCT_VERSION }}}",
         showBanner: unityShowBanner,
       };
 
@@ -99,8 +99,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "1024";
-        canvas.style.height = "768px";
+        canvas.style.width = "{{{ WIDTH }}}";
+        canvas.style.height = "{{{ HEIGTH }}}";
       }
 
       loadingBar.style.display = "block";
