@@ -7,7 +7,7 @@ using System;
 public class BuildVersionProcessor : IPreprocessBuildWithReport
 {
     public int callbackOrder => 0;
-    private const string intialVersion = "0.0";
+    private const string intialVersion = "0,0";
 
 
     public void OnPreprocessBuild(BuildReport report)
@@ -20,19 +20,17 @@ public class BuildVersionProcessor : IPreprocessBuildWithReport
 
     private string FindCurrentVersion()
     {
-        string[] currentVersion = Application.version.Split('[', ']');
+        string[] currentVersion = Application.version.Split('[', ',', ']');
 
-        return currentVersion.Length == 1 ? intialVersion : currentVersion[1];
+        return currentVersion.Length == 1 ? intialVersion : currentVersion[2];
     }
 
     private void UpdateVersion(string version)
     {
-        version = version.Replace('.', ',');
-        if (float.TryParse(version, out float versionNumber))
+        if (int.TryParse(version, out int versionNumber))
         {
-            float newVersion = versionNumber + 0.01f;
             string date = DateTime.Now.ToString("d");
-            PlayerSettings.bundleVersion = $"Version [{newVersion.ToString().Replace(',', '.')}] - {date}";
+            PlayerSettings.bundleVersion = $"Version [{versionNumber++}] - {date}";
         }
     }
 }
