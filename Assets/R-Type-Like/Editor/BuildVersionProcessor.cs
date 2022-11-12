@@ -18,7 +18,7 @@ public class BuildVersionProcessor : IPreprocessBuildWithReport
 
     private string FindCurrentVersion()
     {
-        string[] currentVersion = PlayerSettings.bundleVersion.Split('[', ']');
+        string[] currentVersion = Application.version.Split('[', ']');
 
         return currentVersion.Length == 1 ? intialVersion : currentVersion[1];
     }
@@ -29,8 +29,7 @@ public class BuildVersionProcessor : IPreprocessBuildWithReport
         {
             float newVersion = versionNumber + 0.01f;
             string date = DateTime.Now.ToString("d");
-            PlayerSettings.bundleVersion = $"Version [{newVersion}] - {date}";
-            Debug.Log("PlayerSettings.bundleVersion: " + PlayerSettings.bundleVersion);
+            Application.version = $"Version [{newVersion}] - {date}";
         }
     }
 }
