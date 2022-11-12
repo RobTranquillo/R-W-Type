@@ -8,28 +8,26 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-
-    <h1>R-W-Type</h1>
-    <h3>Feel like you where young.. </h3>
-
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width="{{{ WIDTH }}}px" height="{{{ HEIGHT }}}px"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+    <center>
+      <h1>R-W-Type</h1>
+      <h3>Feel as you where young again.. </h3>
+      <p>Build: {{{ PRODUCT_VERSION }}}</p>
+      <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas" width="{{{ WIDTH }}}px" height="{{{ HEIGHT }}}px"></canvas>
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
+        </div>
+        <div id="unity-warning"> </div>
+        <div id="unity-footer">
+          <div id="unity-webgl-logo"></div>
+          <div id="unity-fullscreen-button"></div>
+          <div id="unity-build-title">R-Type-Like</div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">R-Type-Like</div>
-      </div>
-    </div>
-
-    <p>Build: {{{ PRODUCT_VERSION }}}</p>
-
+    </center>
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
