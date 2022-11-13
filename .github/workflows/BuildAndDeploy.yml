@@ -58,7 +58,7 @@ jobs:
       - name: rsync deployment 🏗️
         uses: burnett01/rsync-deployments@5.2.1
         with:
-          switches: -avr -zz
+          switches: -vr --update
           path: /build/WebGL/WebGL/
           remote_path: /home/${{ secrets.UBERSPACE_USER }}/html/RW-Type/
           remote_host: ${{ secrets.UBERSPACE_HOST }}
