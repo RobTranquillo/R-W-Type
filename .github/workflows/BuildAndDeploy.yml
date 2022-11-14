@@ -44,6 +44,10 @@ jobs:
       - name: Get project name 📝
         run: echo "PROJECT_NAME=$(jq -r '.repository.name' < $GITHUB_EVENT_PATH)" >> $GITHUB_ENV
 
+      # DEBUG
+      - name: Thow interactive shell - Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       # Builds the project
       - name: Build ⚙️
         uses: game-ci/unity-builder@v2
@@ -54,10 +58,6 @@ jobs:
         with:
           targetPlatform: WebGL
           allowDirtyBuild: true # 'true' for failsafe, 'false' for reliability.
-
-      # DEBUG
-      - name: Thow interactive shell - Setup tmate session
-        uses: mxschmitt/action-tmate@v3
 
       # Deploy the game to my Server
       - name: rsync deployment 🏗️
