@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: strength
       value: 333
       objectReference: {fileID: 0}
+    - target: {fileID: -767243823948308884, guid: fe803abaefdbe874080b844a7df65e93, type: 3}
+      propertyPath: applyToObject
+      value: 
+      objectReference: {fileID: 7301280750224233564}
     - target: {fileID: 8578068801519154605, guid: fe803abaefdbe874080b844a7df65e93, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -131,3 +135,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a672ad5b71c8cc44ca985cfc35b6dbaf, type: 3}
+--- !u!1 &7301280750224233564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4554181297479755479, guid: a672ad5b71c8cc44ca985cfc35b6dbaf, type: 3}
+  m_PrefabInstance: {fileID: 6512468851047887499}
+  m_PrefabAsset: {fileID: 0}

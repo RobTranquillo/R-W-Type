@@ -20,6 +20,7 @@ public class Strength : MonoBehaviour
     [Tooltip("Shake on every X hit")]
     public bool shakeRandomOnXHit = true;
     public bool rotateRandomOnXHit = true;
+    public GameObject applyToObject;
     public float shakeDuration = 0.6f;
     public float shakeStrength = 0.6f;
     public int shakeVibratio = 10;
@@ -64,10 +65,10 @@ public class Strength : MonoBehaviour
     {
         if (!shakeRandomOnXHit)
             return;
-        transform.DOShakePosition(shakeDuration, shakeStrength, shakeVibratio, shakeRandomness);
+        applyToObject?.transform.DOShakePosition(shakeDuration, shakeStrength, shakeVibratio, shakeRandomness);
         if (!rotateRandomOnXHit)
             return;
-        transform.DOShakeRotation(shakeDuration, shakeStrength, shakeVibratio, shakeRandomness);
+        applyToObject?.transform.DOShakeRotation(shakeDuration, shakeStrength, shakeVibratio, shakeRandomness);
     }
 
     private void SoundOnHit()
