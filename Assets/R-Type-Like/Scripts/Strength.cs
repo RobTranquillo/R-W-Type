@@ -27,6 +27,7 @@ public class Strength : MonoBehaviour
     public float shakeRandomness = 0.6f;
     public float destroyDelay = 0.3f;
 
+
     internal Action onDestroy;
     internal int lastHits = 1;
 
@@ -58,6 +59,7 @@ public class Strength : MonoBehaviour
 
     private void DestroyNow()
     {
+        DOTween.Kill(applyToObject?.transform);
         Destroy(gameObject);
     }
 
