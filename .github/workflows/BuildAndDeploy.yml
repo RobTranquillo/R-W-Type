@@ -45,8 +45,8 @@ jobs:
         run: echo "PROJECT_NAME=$(jq -r '.repository.name' < $GITHUB_EVENT_PATH)" >> $GITHUB_ENV
 
       # DEBUG
-      #- name: Thow interactive shell - Setup tmate session
-      #  uses: mxschmitt/action-tmate@v3
+      - name: Thow interactive shell - Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       # Builds the project
       - name: Build ⚙️
