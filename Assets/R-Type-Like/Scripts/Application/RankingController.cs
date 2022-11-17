@@ -17,7 +17,8 @@ public class RankingController : MonoBehaviour
     public TMPro.TMP_Text playerName;
 
     public TMPro.TMP_Text playerScore;
-    public TMPro.TMP_Text ranking;
+    public TMPro.TMP_Text names;
+    public TMPro.TMP_Text score;
 
     public int maxRankingPlaces = 8;
 
@@ -90,13 +91,15 @@ public class RankingController : MonoBehaviour
         if (lines.Count > maxRankingPlaces)
             lines = lines.GetRange(0, maxRankingPlaces);
 
-        ranking.text = "";
+        names.text = "";
+        score.text = "";
         foreach (string line in lines)
         {
             string[] fields = line.Split(":");
             if (fields.Length != 2)
                 continue;
-            ranking.text += $"{fields[0]} : {fields[1]}\n";
+            names.text += $"{fields[0]}\n";
+            score.text += $"{fields[1]}\n";
         }
     }
 }
