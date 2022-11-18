@@ -13,11 +13,14 @@ public class HitDetector : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log($"<color=yellow>HitDetector</color> Start");
         powerUpHandler = GetComponentInParent<PowerUpHandler>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log($"<color=yellow>HitDetector</color> OnCollisionEnter {collision}");
+        Debug.Log($"<color=yellow>HitDetector</color> tag {collision.gameObject.tag}");
         if (collision.gameObject.tag == "Obstacle")
         {
             OnHitWithDamage(collision.gameObject.GetComponent<Damage>().value);
@@ -25,7 +28,7 @@ public class HitDetector : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "Enemy")
-        { 
+        {
             // Damage on me
             OnHitWithDamage(collision.gameObject.GetComponentInParent<Damage>().value);
             // Damage on the enemy
