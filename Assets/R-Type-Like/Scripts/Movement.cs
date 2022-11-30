@@ -17,7 +17,12 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = transform.position + Vector3.left * movingSpeed;
+        transform.position = transform.position + Vector3.left * MovingSpeed();
+    }
+
+    private float MovingSpeed()
+    {
+        return movingSpeed;
     }
 
     private void Start()
@@ -27,7 +32,7 @@ public class Movement : MonoBehaviour
         StartCoroutine(Rotate());
     }
 
-    private IEnumerator Rotate()
+    internal IEnumerator Rotate()
     {
         float timeElapsed = 0;
         Quaternion startRotation = transform.rotation;

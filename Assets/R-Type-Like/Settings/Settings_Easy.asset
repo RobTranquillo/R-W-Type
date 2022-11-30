@@ -24,6 +24,8 @@ MonoBehaviour:
   ObstacleSpawner:
     BaseSpawnIntervall: 6
     MaxCount: 4
+    MovingSpeedBase: 3
+    MovingSpeedVariance: 2
   PowerUpSpawner:
     BaseSpawnIntervall: 10
   StandardGun:

@@ -58,6 +58,8 @@ public class SettingsScriptableObject : ScriptableObject
     {
         public float BaseSpawnIntervall;
         public float MaxCount;
+        public float MovingSpeedBase;
+        public float MovingSpeedVariance;
     }
     public SettingsScriptableObject.ObstacleSpawnerSettings ObstacleSpawner;
     
