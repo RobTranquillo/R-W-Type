@@ -42,6 +42,8 @@ public class Strength : MonoBehaviour
 
     internal void Damage(float damageStrengthOnEnemies)
     {
+        if (!enabled)
+            return;
         SoundOnHit();
         ShakeOnHit();
         strength -= damageStrengthOnEnemies;
@@ -50,9 +52,10 @@ public class Strength : MonoBehaviour
         if (!selfDestroyOnZero)
             return;
 
-        destroyParticleSystem.SetActive(true);
+        if (destroyParticleSystem != null)
+            destroyParticleSystem.SetActive(true);
         audioSource.clip = soundIfDestroyed;
-        audioSource.Play();
+        audioSource?.Play();
         onDestroy?.Invoke();
         Invoke("DestroyNow", destroyDelay);
     }

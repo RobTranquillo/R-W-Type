@@ -13,7 +13,6 @@ public class HitDetector : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log($"<color=yellow>HitDetector</color> Start");
         powerUpHandler = GetComponentInParent<PowerUpHandler>();
     }
 

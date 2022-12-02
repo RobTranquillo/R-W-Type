@@ -18,4 +18,9 @@ public class GameOver : MonoBehaviour
             return;
         gameObject.SetActive(true);
     }
+
+    public void Now()
+    {
+        ShowGameOver(0);
+    }
 }

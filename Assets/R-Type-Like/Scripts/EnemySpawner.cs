@@ -11,9 +11,6 @@ public class EnemySpawner : MonoBehaviour
     private PlayerScoreData playerPointsData;
     private GameObject bossGO = null;
 
-
-    
-
     void Start()
     {
         playerPointsData = FindObjectOfType<PlayerScoreData>();
@@ -28,7 +25,6 @@ public class EnemySpawner : MonoBehaviour
         if (Time.time > Settings.Active().EnemySpawner.waveLength)
             Invoke("StartBoss", 7f);
 
-
         //nach vergangene Zeit/30 wird der respawn Interval bis auf minimal alle 0.7 Sekunden runtergeschraubt
         return Mathf.Clamp(Settings.Active().EnemySpawner.spawnBaseIntervall - Time.realtimeSinceStartup/30, 0.7f, 100f);
     }
@@ -39,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         bossGO = Instantiate(boss, transform);
         onBossSpawn.Invoke();
+        bossGO.GetComponent<Strength>().onDestroy += onBossFinish.Invoke;
     }
 
     void SpawnEnemy()

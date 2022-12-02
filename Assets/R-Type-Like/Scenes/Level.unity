@@ -612,6 +612,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1821095335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 909937682, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+  m_PrefabInstance: {fileID: 694268051137932352}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7c8052bc0d85c47bf2f7216ef46ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1882478827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1246,10 @@ PrefabInstance:
       propertyPath: onBossSpawn.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 656376468}
+    - target: {fileID: 4242022074713830487, guid: 726c8624ba1ff2f41affb0d59b528337, type: 3}
+      propertyPath: onBossFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1821095335}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 726c8624ba1ff2f41affb0d59b528337, type: 3}
