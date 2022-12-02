@@ -693,6 +693,38 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545933684, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 545933684, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 545933684, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 545933684, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017372349, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017372349, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017372349, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017372349, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 298732417835182628, guid: 459315fb18ae1a04c92f3100e1fd6572, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1056,21 +1088,9 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1357141122478022531, guid: 9ed8e7a9f0fa2e342b554a6477d6a7df, type: 3}
-      propertyPath: verticalSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357141122478022531, guid: 9ed8e7a9f0fa2e342b554a6477d6a7df, type: 3}
-      propertyPath: horizontalSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8473109597641199513, guid: 9ed8e7a9f0fa2e342b554a6477d6a7df, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473109597641199513, guid: 9ed8e7a9f0fa2e342b554a6477d6a7df, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9141560562506470691, guid: 9ed8e7a9f0fa2e342b554a6477d6a7df, type: 3}
       propertyPath: m_RootOrder

@@ -27,6 +27,8 @@ public class Damage : MonoBehaviour
             if (rb == null)
                 rb = coll.gameObject.AddComponent<Rigidbody>();
             rb.useGravity = false;
+            rb.freezeRotation = true;
+            rb.constraints = RigidbodyConstraints.FreezePositionZ;
         }
     }
 }

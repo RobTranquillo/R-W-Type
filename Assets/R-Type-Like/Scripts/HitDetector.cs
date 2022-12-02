@@ -18,8 +18,6 @@ public class HitDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"<color=yellow>HitDetector</color> OnCollisionEnter {collision}");
-        Debug.Log($"<color=yellow>HitDetector</color> tag {collision.gameObject.tag}");
         if (collision.gameObject.tag == "Obstacle")
         {
             OnHitWithDamage(collision.gameObject.GetComponent<Damage>().value);
